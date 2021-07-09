@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sintomas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-8>
+          <img
+            src="assets/img/cuerpo.jpg"
+            style="height: 1000px; width: 1000px"
+          />
+        </ion-col>
+        <ion-col col-8>   
+          <ion-card>   
+          <ion-searchbar placeholder="Buscar por nombre o parte del cuerpo..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+          <br><br><br>
+          <h1>Seleccione los síntomas que lo describen: </h1>
+          <br><br><br>
+          <h2>Nombre Sintoma &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            Descripción &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             Parte del cuerpo</h2>
+          <ion-item *ngFor="let x of items | async | filter:filterTerm">
+            <ion-label>{{ x.nombre}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {{ x.descripcion}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               {{ x.categoria}}
+            <ion-checkbox [(ngModel)]="x.isChecked"></ion-checkbox>
+          </ion-label>
+          </ion-item>
+          <br><br><br>
+          <ion-button routerLink="/tab3">Volver</ion-button>
+          <ion-button routerLink="">Guardar Síntomas</ion-button>
+        </ion-card>  
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+<ion-content>

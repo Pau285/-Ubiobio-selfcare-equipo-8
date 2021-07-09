@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Síntomas </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-3>
+          <ion-row>
+            <ion-col col-6> </ion-col>
+            <ion-col col-2>
+              <br /><br /><br /><br /><br /><br /><br /><br><br><br>
+              <ion-button>OJOS</ion-button>
+              <br /><br /><br /><br /><br /><br /><br /><br />
+              <ion-button routerLink="tronco">TRONCO</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-6>
+          <ion-text color="dark">
+            <h1>Seleccione:</h1>
+            <h1>El lugar de Dolencia</h1>
+          </ion-text>
+          <br />
+          <ion-button >CABEZA</ion-button>
+          <br /><br />
+          <img
+            src="assets/img/cuerpo.jpg"
+            style="height: 800px; width: 400px"
+          />
+        </ion-col>
+        <ion-col col-3>
+          <br /><br /><br /><br /><br /><br /><br /><br><br><br>  <br>
+          <ion-button routerLink="nariz">NARIZ</ion-button>
+          <br />
+          <ion-button (click)="nextPageWithQueryParams()">BOCA</ion-button>
+          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br>
+          <ion-button routerLink="extremidades">EXTREMIDADES</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
