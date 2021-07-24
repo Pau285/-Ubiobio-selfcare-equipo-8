@@ -1,48 +1,60 @@
-<ion-header [translucent]="true">
+  <ion-header>
   <ion-toolbar>
-    <ion-title> Síntomas </ion-title>
+    <ion-title>Síntomas</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-card>
+  <ion-card-content padding style="overflow: auto; height: 100%">
+    <ion-card>
+    <ion-label
+      >En la imágen puede revisar las partes del cuerpo a las cuales se asocian
+      los síntomas del listado</ion-label
+    >
+    <div text-center>
+      <ion-img src="assets/img/cuerpo.jpg"></ion-img>
+  </div>
+</ion-card>
+        <ion-label >Seleccione los síntomas que padece:</ion-label>
+        <br />
+        <ion-list>
+          <ion-item *ngFor="let x of items | async" (click)="recibir(x)">
+            <ion-label>{{ x.nombre}}</ion-label>
+            <ion-checkbox slot="start" [(ngModel)]="x.selected"></ion-checkbox> 
+            <div *ngIf="x.parte==='Boca'">
+              <ion-avatar item-start>
+                <img src="assets/img/boca.jpg">
+              </ion-avatar> 
+          </div>
+          <div *ngIf="x.parte==='Ojos'">
+            <ion-avatar item-start>
+              <img src="assets/img/eyes.png">
+            </ion-avatar> 
+          </div>
+          <div *ngIf="x.parte==='Cabeza'">
+            <ion-avatar item-start>
+              <img src="assets/img/cabeza.jpg">
+            </ion-avatar> 
+          </div>
+          <div *ngIf="x.parte==='Nariz'">
+            <ion-avatar item-start>
+              <img style="overflow: auto; width: 50px; height: 50px;" src="assets/img/nariz.jpg">
+            </ion-avatar> 
+          </div>
+          <div *ngIf="x.parte==='Extremidades'">
+            <ion-avatar item-start>
+              <img src="assets/img/extremidades.gif">
+            </ion-avatar> 
+          </div>
+          <div *ngIf="x.parte==='Tronco'">
+            <ion-avatar item-start>
+              <img style="overflow: auto; width: 50px; height: 50px;" src="assets/img/tronco.png">
+            </ion-avatar> 
+          </div>
+          </ion-item>
+        </ion-list>
+        <ion-button size="small" (click)="presentAlert()">Guardar Síntomas</ion-button>
+  </ion-card-content>
+</ion-card>
 
-
-<ion-content padding>
-  <ion-card>
-    <ion-card-content>
-      <ion-row>
-        <ion-col col-3>
-          <ion-row>
-            <ion-col col-6> </ion-col>
-            <ion-col col-2>
-              <br /><br /><br /><br /><br /><br /><br /><br><br><br>
-              <ion-button>OJOS</ion-button>
-              <br /><br /><br /><br /><br /><br /><br /><br />
-              <ion-button routerLink="tronco">TRONCO</ion-button>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-        <ion-col col-6>
-          <ion-text color="dark">
-            <h1>Seleccione:</h1>
-            <h1>El lugar de Dolencia</h1>
-          </ion-text>
-          <br />
-          <ion-button >CABEZA</ion-button>
-          <br /><br />
-          <img
-            src="assets/img/cuerpo.jpg"
-            style="height: 800px; width: 400px"
-          />
-        </ion-col>
-        <ion-col col-3>
-          <br /><br /><br /><br /><br /><br /><br /><br><br><br>  <br>
-          <ion-button routerLink="nariz">NARIZ</ion-button>
-          <br />
-          <ion-button (click)="nextPageWithQueryParams()">BOCA</ion-button>
-          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br>
-          <ion-button routerLink="extremidades">EXTREMIDADES</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+<ion-content> </ion-content>

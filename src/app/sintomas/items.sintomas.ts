@@ -6,25 +6,32 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 @Injectable({
   providedIn: 'root'
 })
-export class ItemsService {
+export class ItemsSintomas {
   itemsCollection: AngularFirestoreCollection;
 
   constructor(private afs: AngularFirestore) {
-    this.itemsCollection = afs.collection('Sintomas');
+    this.itemsCollection = afs.collection('Seleccion');
   }
 
   getItems() {
+    return this.itemsCollection.valueChanges({idField: 'idField'});
+  }
+
+  get() {
     return this.itemsCollection.valueChanges();
   }
 
-  addItem(t: any) {
+  addItems(t: any) {
     this.itemsCollection.add({
       nombre: t
     });
   }
 
   getSintomasFiltro(filtro: string){
-    this.afs.collection('Sintomas', ref=>ref.where('nombre','==', filtro));
+    this.afs.collection('Seleccion', ref=>ref.where('nombre','==', filtro));
   }
 
+  deleteItem(id: string) {
+    return this.itemsCollection.doc(id).delete();
+  }
 }

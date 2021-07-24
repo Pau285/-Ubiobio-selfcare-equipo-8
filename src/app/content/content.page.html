@@ -1,32 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Sintomas</ion-title>
+    <ion-title>Síntomas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 
   <ion-card>
-    <ion-card-content>
-      <ion-row>
-        <ion-col col-8>
+    <ion-card-content padding style="overflow: auto; height: 100%;">
+      <h3>En la imágen puede revisar las partes del cuerpo a las cuales se asocian los síntomas del listado </h3>
           <img
             src="assets/img/cuerpo.jpg"
-            style="height: 1000px; width: 1000px"
-          />
-        </ion-col>
-        <ion-col col-8>   
+            style="height: 300px; width: 500px"
+          /> 
           <ion-card>   
           <ion-searchbar placeholder="Buscar por nombre o parte del cuerpo..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
           <br><br><br>
+          <ion-label> hola</ion-label>
           <h1>Seleccione los síntomas que lo describen: </h1>
           <br><br><br>
-          <h2>Nombre Sintoma &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-            Descripción &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <h2>Nombre Sintoma  
+            Descripción 
              Parte del cuerpo</h2>
           <ion-item *ngFor="let x of items | async | filter:filterTerm">
-            <ion-label>{{ x.nombre}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              {{ x.descripcion}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <ion-label>{{ x.nombre}} 
+              {{ x.descripcion}}
                {{ x.categoria}}
             <ion-checkbox [(ngModel)]="x.isChecked"></ion-checkbox>
           </ion-label>
@@ -35,8 +33,6 @@
           <ion-button routerLink="/tab3">Volver</ion-button>
           <ion-button routerLink="">Guardar Síntomas</ion-button>
         </ion-card>  
-        </ion-col>
-      </ion-row>
     </ion-card-content>
   </ion-card>
 

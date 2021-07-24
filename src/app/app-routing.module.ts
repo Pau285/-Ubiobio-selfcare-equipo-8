@@ -9,7 +9,14 @@ const routes: Routes = [
   {
     path: 'content',
     loadChildren: () => import('./content/content.module').then( m => m.ContentPageModule)
+  },{
+    path: 'sintomasGuardados',
+    loadChildren: () => import('./sintomasGuardados/sintomas.module').then( m => m.SintomasPageModule)
   },
+  {
+    path: 'tab3',
+    loadChildren: () => import('./tab3/tab3.module').then( m => m.Tab3PageModule)
+  }
 ];
 
 @NgModule({

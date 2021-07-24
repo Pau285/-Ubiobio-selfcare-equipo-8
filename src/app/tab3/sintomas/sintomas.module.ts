@@ -3,10 +3,10 @@ import { RouterModule } from '@angular/router';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab3Page } from './tab3.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { SintomasPage } from './sintomas.page';
+import { ExploreContainerComponentModule } from 'src/app/explore-container/explore-container.module';
 
-import { Tab3PageRoutingModule } from './tab3-routing.module';
+import { SintomasPageRoutingModule } from './sintomas-routing.module';
 
 @NgModule({
   imports: [
@@ -14,9 +14,9 @@ import { Tab3PageRoutingModule } from './tab3-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab3PageRoutingModule,
+    SintomasPageRoutingModule,
   ],
-  declarations: [Tab3Page],
+  declarations: [SintomasPage],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
-export class Tab3PageModule {}
+export class SintomasPageModule {}
